@@ -1,6 +1,6 @@
 import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { NextFunction } from 'express';
-import { validate, parse as tgaParse, type InitData } from '@telegram-apps/init-data-node';
+import { validate, parse as tgaParse } from '@telegram-apps/init-data-node';
 import { ConfigService } from '@nestjs/config';
 import { Response } from 'express';
 import { setInitData } from 'src/utils/setInitData';
@@ -12,7 +12,7 @@ class TGAAuthMiddleware implements NestMiddleware {
 		const tga_token = this.ConfigService.get('TGA_CRYPIX_TOKEN');
 		const expiresIn = this.ConfigService.get('TGA_CRYPIX_SESSION_EXPIRES');
 
-		const [authType, authData = ''] = (req.headers['authorization'] || '').split(' ');
+		const [authType, authData = ''] = (req.headers['authorization'] ?? '').split(' ');
 
 		if (authType === 'tma') {
 			try {
