@@ -3,7 +3,7 @@ import { NextFunction } from 'express';
 import { validate, parse as tgaParse } from '@telegram-apps/init-data-node';
 import { ConfigService } from '@nestjs/config';
 import { Response } from 'express';
-import { setInitData } from 'src/utils/setInitData';
+import { setInitData } from '@utils/setInitData';
 
 @Injectable()
 class TGAAuthMiddleware implements NestMiddleware {

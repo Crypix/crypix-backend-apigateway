@@ -1,7 +1,7 @@
-import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AuthController } from './auth.controller';
-import { TGAAuthMiddleware } from 'src/middleware/TGAAuthMiddleware';
-import { AUTH_SERVICE_PROVIDER } from 'src/microservices/AUTH_SERVICE';
+import { TGAAuthMiddleware } from '@middleware/TGAAuthMiddleware';
+import { AUTH_SERVICE_PROVIDER } from '@microservices/AUTH_SERVICE';
 
 @Module({
 	imports: [],
